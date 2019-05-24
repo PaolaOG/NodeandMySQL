@@ -9,7 +9,6 @@ var connection = mysql.createConnection({
 	database: "bamazon"
 })
 
-
 connection.connect(function (err) {
     if (err){
         console.log (err)
@@ -102,7 +101,7 @@ function buyStuff (id,quantity){
         if(parseInt(res[0].stock_quantity) >= parseInt (quantity)){
             var total= parseInt(res[0].price) * quantity;
             updateItems(id,res[0].stock_quantity,quantity);
-            console.log("You paid: $" + total +"and removed" + quantity + "Units from" + res[0].products_name + "\n");
+            console.log("You paid: $" + total +"and removed" + quantity + "Units from" + res[0].product_name + "\n");
             
         } else {
             console,log("Insufficient quantity!!!");
@@ -131,7 +130,6 @@ function updateItems(id, originalStock, amountReduced) {
         }
      )
 }
-
 
 
 
